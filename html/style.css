@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent !important;
+}
+
+/* Scoreboard visibility states */
+.scoreboard-hidden {
+    opacity: 0;
+    transform: translateX(100px);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scoreboard-visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.2s ease-out forwards;
+}
+
+/* Smooth transitions */
+.transition-smooth {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Status indicators */
+.status-icon-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.status-available-modern {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
+    color: #10b981;
+    border: 2px solid rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2), inset 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+.status-unavailable-modern {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
+    color: #ef4444;
+    border: 2px solid rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.2), inset 0 0 20px rgba(239, 68, 68, 0.1);
+}
+
+.status-busy-modern {
+    background: linear-gradient(135deg, rgba(255, 203, 116, 0.2) 0%, rgba(229, 184, 102, 0.2) 100%);
+    color: #ffcb74;
+    border: 2px solid rgba(255, 203, 116, 0.4);
+    box-shadow: 0 0 20px rgba(255, 203, 116, 0.2), inset 0 0 20px rgba(255, 203, 116, 0.1);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 203, 116, 0.2), inset 0 0 20px rgba(255, 203, 116, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 203, 116, 0.4), inset 0 0 30px rgba(255, 203, 116, 0.2);
+    }
+}
+
+/* Status badges */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.badge-available {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-unavailable {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-busy {
+    background: rgba(255, 203, 116, 0.15);
+    color: #ffcb74;
+    border: 1px solid rgba(255, 203, 116, 0.3);
+}
+
+/* Hover effects */
+.scoreboard-item:hover {
+    background: rgba(63, 63, 70, 0.5);
+}
+
+/* Custom scrollbar */
+#scoreboard-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#scoreboard-content::-webkit-scrollbar-track {
+    background: rgba(39, 39, 42, 0.5);
+}
+
+#scoreboard-content::-webkit-scrollbar-thumb {
+    background: rgba(82, 82, 91, 0.8);
+    border-radius: 3px;
+}
+
+#scoreboard-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(113, 113, 122, 0.9);
+}
+
+/* Glass morphism effect */
+.glass {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Pulse animation for live indicator */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
